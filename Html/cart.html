@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/4.5.2 bootstrap.min.css" rel="stylesheet">
+    <link href="../css/5.3.0 bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/all.min.js"></script>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    /* css header */
+    header {
+        background-color: #55BCE8;
+    }
+    .row img {
+        width: 150px;
+        height: 100px;
+    }
+    .text-primary {
+        text-decoration: none;
+    }
+    .text-dark{
+        text-decoration: none;
+    }
+    nav {
+        background-color: #ecf4f7; 
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    nav ul li {
+        padding: 10px 20px;
+        margin-left: 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: rgb(27, 24, 24); 
+        font-weight: 600;
+        padding: 10px;
+    }
+    nav ul li:first-child {
+        background-color: #ecf4f7; 
+    }
+    nav ul li:first-child a img {
+        height: 50px;
+        vertical-align: middle;
+    }
+    nav ul li a:hover {
+        color: #ffffff;
+        background-color: #0099FF;
+        border-radius: 5px; 
+        text-decoration: none; 
+    }
+    /* css cart */
+    .cart {
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+        margin-bottom:50px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table th, table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    .cart h3{
+      color:#55BCE8;
+      margin-left:10px;
+    }
+    table th {
+        background-color: #eaeded;
+    }
+    .total {
+        font-size: 20px;
+        text-align: right;
+        margin-top: 20px;
+    }
+    .checkout-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        float: right;
+        border-radius: 5px;
+    }
+    .checkout-button:hover {
+        background-color: #0056b3;
+    }
+    .delete-button {
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .delete-button:hover {
+        background-color: #d40000;
+   
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1050;
+        width: 500px; 
+        max-width: 90%;
+    }
+    span {
+        color: red;
+        font-size: 14px;
+    }
+    /* css ft */
+    footer {
+      background-color: #f1f1f1;
+      padding: 20px 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: left;
+    }    
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 10%;
+    }
+    .footer-column {
+      flex: 1;
+      margin: 0 20px;
+    }
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .footer-column p,
+    .footer-column ul {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 5px;
+    }
+    .footer-column ul li a {
+      color: #333;
+      text-decoration: none;
+    }
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #e1e1e1;
+      margin-top: 20px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .footer-bottom a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    .footer-certificates img {
+      width: 120px;
+      margin: 0 10px;
+    } 
+</style>
+</head>
+<body>
+  <!-- header -->
+<header>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="../images/Logo.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-5 pt-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" aria-label="Tìm kiếm sản phẩm" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa-solid fa-magnifying-glass"></i></span>
+                </div> 
+            </div>
+            <div class="col-md-5 pt-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="fs-2 ml-3"> 
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="container">
+                                    <a href="#loginModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>/
+                                    <a href="#registerModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a>
+                                </div>
+                               &nbsp <strong>Tài khoản</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="fs-2 pr-3"> 
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                            </div>
+                            <div class="col-10">
+                              <a href="cart.html" class="text-dark">Giỏ hàng của bạn</a><br>
+                              <strong>Sản phẩm</strong>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+</header>
+<!-- nav -->
+<nav>
+    <ul>
+        <li><a href="../Html/Trang chủ.html"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="../Html/Giới thiệu.html">GIỚI THIỆU</a></li>
+        <li><a href="../Html/Sữa bột tăng chiều cao.html">SỮA TĂNG CHIỀU CAO</a></li>
+        <li><a href="../Html/Sữa bột tăng cân.html">SỮA TĂNG CÂN</a></li>
+        <li><a href="../Html/Sản phẩm bán chạy.html">SẢN PHẨM BÁN CHẠY</a></li>
+        <li><a href="../Html/Site map.html">SITE MAP</a></li>
+        <li><a href="../Html/Liên hệ.html">LIÊN HỆ</a></li>
+    </ul>
+</nav>
+
+<!-- Giohang -->
+<div class="container mt-5">
+    <div class="row">
+    <h2 class="text-center">Giỏ Hàng Của Bạn</h2>
+    <table class="table table-bordered cart-table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên Sản Phẩm</th>
+                <th scope="col">Số Lượng</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Tổng Giá</th>
+                <th scope="col">Hành Động</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be added here by JavaScript -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="text-end">Tổng Cộng:</td>
+                <td id="total-price">0₫</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="text-end">
+        <button class="btn btn-secondary me-2">Đóng</button>
+        <button class="btn btn-success" id="btnDK">Thanh Toán</button>
+    </div>
+    </div>
+    <div class="row">        
+    </div>
+</div>
+
+<div class="modal p-3 bg-light shadow-lg" id="modal">
+    <div class="modal-header">
+        <div class="modal-title">THÔNG TIN THANH TOÁN</div>
+        <div class="btn btn-close" id="close"></div>
+    </div>
+    <form>
+        <div class="mb-4">
+            <h5>1. Địa chỉ giao hàng</h5>
+            <div class="form-group">
+                <label for="fullName">Họ và Tên:</label>
+                <input type="text" id="fullName" class="form-control" placeholder="Nhập họ và tên" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Số Điện Thoại:</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ:</label>
+                <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Tỉnh/Thành phố:</label>
+                <input type="text" id="city" class="form-control" placeholder="Nhập tỉnh/thành phố" required>
+            </div>
+        </div>
+        <div class="mb-4">
+            <h5>2. Phương thức thanh toán</h5>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="creditCard" name="paymentMethod" value="creditCard" required>
+                <label class="form-check-label" for="creditCard">Thẻ Tín dụng / Ghi nợ</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="momo" name="paymentMethod" value="momo">
+                <label class="form-check-label" for="momo">Ví MoMo / ZaloPay</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="cod" name="paymentMethod" value="cod">
+                <label class="form-check-label" for="cod">Thanh toán khi giao hàng (COD)</label>
+            </div>
+        </div>
+        <div class="mb-4">
+            <h5>3. Mã giảm giá (nếu có)</h5>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
+                <button class="btn btn-outline-secondary" type="button">Áp dụng</button>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Xác Nhận Thanh Toán</button>
+        </div>
+    </form>
+    
+</div>
+<script>
+    $(document).ready(function () {
+        $('#btnDK').click(function () {
+            $('#modal').fadeIn();
+        });
+        $('#close, #close1').click(function () {
+            $('#modal').fadeOut();
+        });
+    });
+</script>
+<!-- Đăng nhập Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">ĐĂNG NHẬP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Đăng nhập bằng Email</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Quên mật khẩu?</button>                  
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+                    <div class="modal-footer">
+                        <p class="text-center w-100">Bạn chưa có tài khoản? <a href="#registerModal" class="text-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Đăng ký Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">ĐĂNG KÝ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="HotenInput" class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="HotenInput" placeholder="Họ và tên">
+                    </div>
+                    <div class="mb-3">
+                        <label for="PhoneInput" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="PhoneInput" placeholder="Điện thoại của bạn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInputReg" class="form-label">Email đăng nhập</label>
+                        <input type="email" class="form-control" id="emailInputReg" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputReg" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputReg" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputConfirm" class="form-label">Xác nhận Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputConfirm" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="agreeTerms">
+                        <label class="form-check-label" for="agreeTerms">Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của công ty</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng ký thành viên</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>TƯ VẤN BÁN HÀNG</h3>
+        <p>
+          <strong>0961 922 556</strong> (Hotline - Zalo 1)<br>
+          <strong>0965 922 556</strong> (Hotline - Zalo 2)
+        </p>
+        <div class="social-icons">
+          <a href="#"><img src="../images/ic_fb.png" alt="Facebook"></a>
+          <a href="#"><img src="../images/ic_yt.png" alt="YouTube"></a>
+        </div>
+      </div>
+  
+      <div class="footer-column">
+        <h3>CHÚNG TÔI LÀ AI ?</h3>
+        <ul>
+          <li><a href="#">Giới thiệu Sữa Bột 24/7</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+        <ul>
+          <li><a href="#">Hướng dẫn mua hàng</a></li>
+          <li><a href="#">Cam kết chất lượng</a></li>
+          <li><a href="#">Quy định thanh toán</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h3>CHÍNH SÁCH ƯU ĐÃI</h3>
+        <ul>
+          <li><a href="#">Chính sách bảo mật thông tin</a></li>
+          <li><a href="#">Chính sách thanh toán</a></li>
+          <li><a href="#">Chính sách bảo hành</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>
+        <strong>SỮA BỘT 24/7 - SUABOT 24/7.COM</strong><br>
+        TRANG TMĐT CHUYÊN SỮA HÀNG ĐẦU VIỆT NAM<br>
+        Địa chỉ: Quang Trung Gò Vấp TP Hồ Chí Minh<br>
+        Website: <a href="http://suabot24/7.com">www.suabot24/7.com</a><br>
+        ĐT: 0961 922 556 - E: <a href="mailto:cskh@suabot24/7.com">cskh@suabottot.com</a>
+      </p>
+        </div>
+  </footer>
+  <!-- scr cart -->
+  <script>
+    function loadCart() {
+        // Lấy giỏ hàng từ localStorage hoặc khởi tạo một mảng rỗng
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    function saveCart(cart) {
+        // Lưu giỏ hàng vào localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function updateCart() {
+        const cartTable = document.getElementById('cart-items');
+        cartTable.innerHTML = ''; // Xóa nội dung hiện có
+        let totalPrice = 0;
+
+        // Lấy giỏ hàng từ localStorage
+        const cartItems = loadCart();
+
+        cartItems.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${item.name}</td>
+                <td>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(${item.id}, -1)">-</button>
+                    ${item.quantity}
+                    <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity(${item.id}, 1)">+</button>
+                </td>
+                <td>${item.price.toLocaleString()}₫</td>
+                <td>${itemTotal.toLocaleString()}₫</td>
+                <td><button class="btn btn-danger btn-sm" onclick="removeItem(${item.id})">Xóa</button></td>
+            `;
+            cartTable.appendChild(row);
+        });
+
+        document.getElementById('total-price').innerText = totalPrice.toLocaleString() + '₫';
+    }
+
+    function updateQuantity(id, change) {
+        const cartItems = loadCart();
+        const item = cartItems.find(item => item.id === id);
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + change); // Đảm bảo số lượng ít nhất là 1
+            saveCart(cartItems);
+            updateCart();
+        }
+    }
+
+    function removeItem(id) {
+        const cartItems = loadCart();
+        const itemIndex = cartItems.findIndex(item => item.id === id);
+        if (itemIndex > -1) {
+            cartItems.splice(itemIndex, 1);
+            saveCart(cartItems);
+            updateCart();
+        }
+    }
+
+    // Khởi tạo giỏ hàng khi tải trang
+    document.addEventListener('DOMContentLoaded', updateCart);
+</script>
+
+</body>
+</html>

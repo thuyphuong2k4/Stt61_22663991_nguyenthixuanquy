@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sữa tăng chiều cao</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/4.5.2 bootstrap.min.css" rel="stylesheet">
+    <link href="../css/5.3.0 bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/all.min.js"></script>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    /* CSS header */
+    header {
+        background-color: #55BCE8;
+    }
+    .row img {
+        width: 150px;
+        height: 100px;
+    }
+    .text-primary {
+        text-decoration: none;
+    }
+    .text-dark{
+        text-decoration: none;
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    nav {
+        background-color: #ecf4f7; 
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    nav ul li {
+        padding: 10px 20px;
+        margin-left: 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: rgb(27, 24, 24); 
+        font-weight: 600;
+        padding: 10px;
+    }
+    nav ul li:first-child {
+        background-color: #ecf4f7; 
+    }
+    nav ul li:first-child a img {
+        height: 50px;
+        vertical-align: middle;
+    }
+    nav ul li a:hover {
+        color: #ffffff;
+        background-color: #0099FF;
+        border-radius: 5px; 
+        text-decoration: none; 
+    }
+    /* CSS content */
+    .content{
+      margin:10px;
+      width:100%;
+      display:inline-flex;
+    }
+    /* css menu content */
+    .menu{
+      width:30%;
+      float:left;
+      padding-left:50px;
+    }
+    .menu-container {
+        width: 90%;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+    /* Header for the category */
+    .menu-header {
+        background-color: #55BCE8;
+        color: white;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    /* Menu items styling */
+    .menu-item {
+        list-style-type: none;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .menu-item:hover {
+        background-color: #f1f1f1;
+    }
+    .submenu {
+        padding-left: 30px;
+        display: none;
+    }
+    .menu-item.active .submenu {
+        display: block;
+    }
+    .STCC {
+        width: 75%;
+        margin: auto;
+        padding: 20px;
+    }
+    .STCC h1 {
+        text-align: left;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .content-STCC h1{
+        color:#007bff;
+        font-size: 30px;
+    }
+    .content-STCC h2{
+       font-size: 15px;
+    }
+    .content-STCC p{
+     text-align: justify;
+    }
+    .content-STCC h3{
+        margin-top:25px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 20px;
+    }
+    /* .content-STCC img{
+        width:25%;
+    } */
+    .STCC .products {
+        width:60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .STCC .product {
+        display:inline-flex;
+        background-color: white;
+        width: 24%;           
+        border-radius: 0px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin:2px;
+        transition: transform 0.2s ease-in-out;
+    }
+    .STCC .product a{
+        text-decoration: none;
+    }
+    .STCC .product:hover {
+        transform: scale(1.05); 
+    }
+    .STCC .product img {
+        width: 80%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .STCC .product p {
+        font-size: 15px;
+        margin: 10px 0;
+        color: #333;
+        text-align: center;
+    }
+    .STCC .price {
+        font-size: 20px;
+        color: red;
+        margin: 5px 0;
+    }
+    .STCC .ratings {
+        color: gold;
+    }
+    .STCC .button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }    
+    /* CSS fotter */
+    footer {
+      margin-top:10px;
+      background-color: #f1f1f1;
+      padding: 20px 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: left;
+    }   
+    .footer-top {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid darkgray;
+  
+    }
+
+    .footer-item {
+      text-align: center;
+    }
+
+    .footer-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .footer-item p {
+      font-size: 15px;
+      color: #2e2b2b;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top:20px;
+      padding: 0 10%;
+    }
+    .footer-column {
+      flex: 1;
+      margin: 0 20px;
+    }
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .footer-column p,
+    .footer-column ul {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 5px;
+    }
+    .footer-column ul li a {
+      color: #333;
+      text-decoration: none;
+    }
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #e1e1e1;
+      margin-top: 20px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .footer-bottom a {    
+      text-decoration: none;
+      color:#55BCE8
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    .footer-certificates img {
+      width: 120px;
+      margin: 0 10px;
+    } 
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="../images/Logo.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-5 pt-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" aria-label="Tìm kiếm sản phẩm" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa-solid fa-magnifying-glass"></i></span>
+                </div> 
+            </div>
+            <div class="col-md-5 pt-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="fs-2 ml-3 "> 
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="container ">
+                                    <a href="#loginModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>/
+                                    <a href="#registerModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a>
+                                </div>
+                               &nbsp <strong>Tài khoản</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="fs-2 pr-3"> 
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                            </div>
+                            <div class="col-10">
+                                <a href="cart.html" class="text-dark">Giỏ hàng của bạn</a><br>
+                                <strong>Sản phẩm</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+</header>
+<nav>
+    <ul>
+        <li><a href="../Html/Trang chủ.html"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="../Html/Giới thiệu.html">GIỚI THIỆU</a></li>
+        <li><a href="../Html/Sữa bột tăng chiều cao.html">SỮA TĂNG CHIỀU CAO</a></li>
+        <li><a href="../Html/Sữa bột tăng cân.html">SỮA TĂNG CÂN</a></li>
+        <li><a href="../Html/Sản phẩm bán chạy.html">SẢN PHẨM BÁN CHẠY</a></li>
+        <li><a href="../Html/Site map.html">SITE MAP</a></li>
+        <li><a href="../Html/Liên hệ.html">LIÊN HỆ</a></li>
+    </ul>
+</nav>
+<div class="content">
+ <!-- Menu -->
+ <div class="menu">
+    <div class="menu-container">
+      <div class="menu-header">DANH MỤC</div>
+      <ul>
+          <li class="menu-item">
+            <a href="#"> KHUYẾN MÃI - QUÀ TẶNG</a>
+          </li>
+          <li class="menu-item">
+            <a href="../Html/Sữa bột tăng cân.html"> SỮA TĂNG CÂN</a>
+          </li>
+          <li class="menu-item">
+            <a href="../Html/Sữa bột tăng chiều cao.html"> SỮA TĂNG CHIỀU CAO</a>
+          </li>
+          <li class="menu-item">
+            <a href="#"> SỮA ĐẶC TRỊ</a>
+          </li>
+          <li class="menu-item">
+            <a href="../Html/Tích điểm đổi quà.html"> TÍCH ĐIỂM ĐỔI QUÀ</a>
+          </li>  
+      </ul>
+  </div>
+  </div>
+  <!-- sản phẩm -->
+  <div class="STCC">
+<div class="content-STCC">
+    <h1>Sữa Tăng Chiều Cao</h1>
+    <h2><strong>VÌ SAO TRẺ THẤP CÒI?</strong></h2>
+    <p>Có nhiều nguyên nhân khiến trẻ thấp còi, trong đó dinh dưỡng là yếu tố tác động lớn nhất.
+         Trẻ bị thiếu hụt năng lượng và các vi chất dinh dưỡng cần thiết cho quá trình phát triển do không nhận đủ từ các bữa ăn hằng ngày. 
+         Trẻ thấp còi có xu hướng chậm phát triển cả về thể chất (cân nặng, chiều cao) và nhận thức, tỉ lệ mắc bệnh tật và tử vong cao hơn. 
+         Trẻ thấp còi lúc bé, đặc biệt trước 3 tuổi sẽ làm tăng nguy cơ thấp còi khi trưởng thành.</p>
+    <!-- <img src="/Bài tập lớn/Giao diện/images/tang-chieu-cao.jpg" alt="">
+    <div class="products"> -->
+<!-- Product 1 -->
+<div class="product">
+    <a href="Sản phẩm 2.html">
+    <img src="../images/calokid/1.jpg" alt="Sữa Appeton Weight Gain Junior">
+    <p>Sữa Appeton Weight Gain Junior tăng cân </p>
+    <div class="price">550,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+<!-- Product 2 -->
+<div class="product">
+    <a href="Sản phẩm 4.html">
+    <img src="../images/colosbaby/1.jpg" alt="Sữa Grow Plus+ 780g của Nutifood">
+    <p>Sữa Grow Plus+ 780g của Nutifood </p>
+    <div class="price">355,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 3 -->
+<div class="product">
+    <a href="Sản phẩm 6.html">
+    <img src="../images/dg3/1.jpg" alt="Sữa Grow Plus đỏ Nutifood 900g">
+    <p>Sữa Grow Plus đỏ Nutifood 900g</p>
+    <div class="price">380,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 4 -->
+<div class="product">
+    <a href="Sản phẩm 3.html">
+    <img src="../images/dg2/1.jpg" alt="Sữa Colos Gain 0+ 800G">
+    <p>Sữa Colos Gain 0+ 800G (trẻ từ 0-12 tháng)</p>
+    <div class="price">400,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 5 -->
+<div class="product">
+    <a href="Sản phẩm 8.html">
+    <img src="../images/oggi/1.jpg" alt="Sữa CALOKID Gold 0+">
+    <p>Sữa CALOKID Gold 0+ (0-12 tháng)</p>
+    <div class="price">350,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 6 -->
+<div class="product">
+    <a href="Sản phẩm 7.html">
+    <img src="../images/ensure/1.jpg" alt="Sữa Nutralait BA 700g">
+    <p>Sữa Nutralait BA 700g (trẻ biếng ăn từ 1-10 tuổi)</p>
+    <div class="price">395,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 7 -->
+<div class="product">
+    <a href="Sản phẩm 5.html">
+    <img src="../images/dg2/1.jpg" alt="Sữa Care 100 Gold 900g">
+    <p>Sữa Care 100 Gold 900g (cho trẻ từ 1 – 10 tuổi)</p>
+    <div class="price">350,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+
+<!-- Product 8 -->
+<div class="product">
+    <a href="Sản phẩm 1.html">
+    <img src="../images/growplus/1.jpg" alt="Sữa Nutren Junior Nestle Thụy Sĩ">
+    <p>Sữa Nutren Junior Nestle Thụy Sĩ 850g</p>
+    <div class="price">590,000₫</div>
+    <div class="ratings">⭐ ⭐ ⭐ ⭐ ⭐</div>
+    </a>
+</div>
+<h3><strong>Vì sao trẻ thấp còi? Làm thế nào để cài thiện chiều cao cho trẻ</strong></h3>
+<p>
+    Có nhiều nguyên nhân khiến trẻ thấp còi, trong đó dinh dưỡng là yếu tố tác động lớn nhất. Trẻ bị thiếu hụt năng lượng và các vi chất dinh dưỡng cần thiết cho quá trình phát triển do không nhận đủ từ các bữa ăn hằng ngày.<br><br>
+
+Trẻ sinh non, trẻ có cân nặng sơ sinh thấp, mẹ thiếu dinh dưỡng trong thai kỳ cũng tăng nguy cơ thấp còi khi chào đời. Ngoài ra, thấp còi còn là kết quả của việc trẻ nhiễm các bệnh như tiêu chảy, rối loạn tiêu hóa kéo dài, nhiễm khuẩn đường hô hấp và tiêu hóa, trẻ bị còi xương…<br><br>
+
+Sự thiếu hụt thường phổ biến ở các trẻ dưới 5 tuổi, đặc biệt là dưới 3 tuổi bởi đây là giai đoạn các bé ăn uống chưa đa dạng. Sự biếng ăn hoặc ăn lệch 1 món khiến bé giảm cơ hội lấy đủ các vitamin và khoáng chất thiết yếu cho tăng trưởng chiều cao.<br><br>
+
+Điều đáng lo ngại là nếu trẻ thấp còi lúc 3 tuổi sẽ ảnh hưởng tới chiều cao khi trưởng thành bởi theo đánh giá của Tổ chức Y tế Thế giới – WHO, chiều cao lúc 3 tuổi ảnh hưởng quyết định 60% chiều cao khi trưởng thành. Thiếu hụt đồng nghĩa với việc bé sẽ mất cơ hội này.<br><br>
+
+<strong>Làm thế nào để cải thiện chiều cao cho trẻ thấp còi?</strong><br><br>
+2 vấn đề cần đặc biệt lưu ý khi chăm sóc trẻ thấp còi là giúp trẻ phát triển chiều cao tối ưu của từng giai đoạn độ tuổi để bắt kịp đà tăng trưởng và tăng cường miễn dịch (dưới 5 tuổi trẻ thường có những “khoảng trống miễn dịch” nên khả năng ốm và mắc bệnh cao hơn).<br><br>
+
+Để có hiệu quả tốt nhất, can thiệp tình trạng thấp còi nên được tiến hành sớm, tốt nhất trong giai đoạn trước 3 tuổi bởi trước 3 tuổi trẻ có một đợt tăng chiều cao tối đa của giai đoạn thơ ấu.<br><br>
+
+Tăng cường dinh dưỡng và thực phẩm bổ sung là những can thiệp có tác động tích cực đến chiều cao của trẻ. Một số vi chất dinh dưỡng tác động đến phát triển chiều cao ở trẻ, cha mẹ nên quan tâm đó là: Vitamin A, Sắt, Kẽm, Canxi, Vitamin D3, MK7,….<br><br>
+
+Trong đó, Canxi là thành phần chính trong xương, tham gia xây dựng cấu trúc xương khỏe mạnh. Canxi cũng rất giàu trong thực phẩm như trứng, tôm, cua, cá, ngo, sò, hàu, đậu phụ, các loại đậu, rau màu xanh thẫm, sữa và chế phẩm từ sữa…<br><br>
+
+Cha mẹ nên bổ sung canxi từ thực phẩm, không nên tự ý bổ sung thuốc canxi cho bé vì thường không mang kết quả tăng chiều cao so với canxi từ thực phẩm, mà còn có nguy cơ cao gây ra các vấn đề sức khỏe. Dư canxi có thể ảnh hưởng đến hormone tăng trưởng và có tác dụng ngược lại là làm các bé “lùn” hơn.<br><br>
+
+Thêm nữa, canxi sẽ không thể hấp thu hiệu quả vào trong cơ thể nếu thiếu vitamin D3 và K2 hỗ trợ.<br><br>
+
+Vai trò trực tiếp và quyết định của vitamin D3 và K2 trong định hướng và hấp thụ canxi cho sự tăng trưởng xương và chiều cao khỏe mạnh. Trong thực phẩm, Vitamin K2 có thể tìm thấy trong gan động vật, đậu natto… Trong khi đó, vitamin D3 chỉ có thể tìm thấy trong một số loại cá béo, gan và chất béo của động vật có vú ở biển, nhưng với hàm lượng rất nhỏ.<br><br>
+
+Để cải thiện chiều cao cho bé thì mẹ nên lựa chọn các sản phẩm sữa công thức giàu các Vitamin và khoáng chất như phân tích ở trên. Và các sản phẩm sữa công thức được giới thiệu đang được các mẹ cho con sử dụng và đánh giá rất cao về hiệu quả tăng cân mà mẹ có thể tham khảo.<br><br>
+</p>
+</div>
+</div>
+</div>
+
+<script>
+    // Function to add product to localStorage and redirect to the cart page
+    function addToCart(productName, price) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add new item to the cart
+        cart.push({ name: productName, price: price });
+
+        // Save updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Redirect to the cart page
+        window.location.href = 'cart.html'; // Replace with actual cart page path
+    }
+</script>
+
+</div>
+
+<!-- Đăng nhập Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">ĐĂNG NHẬP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Đăng nhập bằng Email</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Quên mật khẩu?</button>                  
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+                    <div class="modal-footer">
+                        <p class="text-center w-100">Bạn chưa có tài khoản? <a href="#registerModal" class="text-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Đăng ký Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">ĐĂNG KÝ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="HotenInput" class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="HotenInput" placeholder="Họ và tên">
+                    </div>
+                    <div class="mb-3">
+                        <label for="PhoneInput" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="PhoneInput" placeholder="Điện thoại của bạn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInputReg" class="form-label">Email đăng nhập</label>
+                        <input type="email" class="form-control" id="emailInputReg" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputReg" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputReg" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputConfirm" class="form-label">Xác nhận Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputConfirm" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="agreeTerms">
+                        <label class="form-check-label" for="agreeTerms">Tôi đồng ý với <a href="../Html/Điều khoản dịch vụ.html">Điều khoản dịch vụ</a> và <a href="../Html/Chính sách bảo mật.html">Chính sách bảo mật</a> của công ty</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng ký thành viên</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-top">
+        <div class="footer-item">
+          <img src="../images/ft 1.png" alt="Heart Icon">
+          <p>Cùng Ba Mẹ <br>Nuôi Con</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 2.png" alt="Delivery Icon">
+          <p>Giao Hàng <br>Siêu Tốc 1h</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 3.png" alt="Check Icon">
+          <p>100% <br>Chính Hãng</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 4.png" alt="Snowflake Icon">
+          <p>Bảo Quản<br> Mát</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 5.png" alt="Return Icon">
+          <p>Đổi Trả <br>Dễ Dàng</p>
+        </div>
+      </div>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>TƯ VẤN BÁN HÀNG</h3>
+          <p>
+            <strong>0961 922 556</strong> (Hotline - Zalo 1)<br>
+            <strong>0965 922 556</strong> (Hotline - Zalo 2)
+          </p>
+          <div class="social-icons">
+              <a href="#"><img src="../images/ic_yt.png" alt="YouTube"></a>
+              <a href="#"><img src="../images/ic_fb.png" alt="Facebook"></a>
+          </div>
+        </div>
+    
+        <div class="footer-column">
+          <h3>CHÚNG TÔI LÀ AI ?</h3>
+          <ul>
+            <li><a href="../Html/Giới thiệu.html">Giới thiệu Sữa Bột 24/7</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+          <ul>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Cam kết chất lượng</a></li>
+            <li><a href="#">Quy định thanh toán</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>CHÍNH SÁCH ƯU ĐÃI</h3>
+          <ul>
+            <li><a href="../Html/Chính sách bảo mật.html">Chính sách bảo mật thông tin</a></li>
+            <li><a href="../Html/Chính sách thanh toán.html">Chính sách thanh toán</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+      </div>  
+      <div class="footer-bottom">
+        <p>
+          <strong>SỮA BỘT 24/7 - SUABOT 24/7.COM</strong><br>
+          TRANG TMĐT CHUYÊN SỮA HÀNG ĐẦU VIỆT NAM<br>
+          Địa chỉ: Quang Trung Gò Vấp TP Hồ Chí Minh<br>
+          Website: <a href="http://suabot24/7.com">www.suabot24/7.com</a><br>
+          ĐT: 0961 922 556 - E: <a href="mailto:cskh@suabot24/7.com">cskh@suabottot.com</a>
+        </p>
+      </div>
+</footer>
+<!-- <script src="../js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</body>
+</html>

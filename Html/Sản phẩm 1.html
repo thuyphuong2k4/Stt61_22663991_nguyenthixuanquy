@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sữa Grow Plus+ 780g của Nutifood</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/4.5.2 bootstrap.min.css" rel="stylesheet">
+    <link href="../css/5.3.0 bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/all.min.js"></script>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    /* CSS header */
+    header {
+        background-color: #55BCE8;
+    }
+    .row img {
+        width: 150px;
+        height: 100px;
+    }
+    .text-primary {
+        text-decoration: none;
+    }
+    .text-dark{
+        text-decoration: none;
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    nav {
+        background-color: #ecf4f7; 
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    nav ul li {
+        padding: 10px 20px;
+        margin-left: 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: rgb(27, 24, 24); 
+        font-weight: 600;
+        padding: 10px;
+    }
+    nav ul li:first-child {
+        background-color: #ecf4f7; 
+    }
+    nav ul li:first-child a img {
+        height: 50px;
+        vertical-align: middle;
+    }
+    nav ul li a:hover {
+        color: #ffffff;
+        background-color: #0099FF;
+        border-radius: 5px; 
+        text-decoration: none; 
+    }
+    /* CSS content */
+    .content{
+      margin:10px;
+      width:100%;
+      display:inline-flex;
+    }
+    /* css menu content */
+    .menu{
+      width:30%;
+      float:left;
+      padding-left:50px;
+    }
+    .menu-container {
+        width: 90%;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+    .menu-header {
+        background-color: #55BCE8;
+        color: white;
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .menu-item {
+        list-style-type: none;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .menu-item:hover {
+        background-color: #f1f1f1;
+    }
+    .submenu {
+        padding-left: 30px;
+        display: none;
+    }
+    .menu-item.active .submenu {
+        display: block;
+    }
+   .ic-row {
+    display: flex;          /* Sắp xếp các phần tử con theo hàng ngang */
+    gap: 9px;    
+   }
+    .thumbnail img {
+            width: 80px;
+            cursor: pointer;
+        }
+        .main-image img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+        }
+    /* CSS fotter */
+    footer {
+      margin-top:10px;
+      background-color: #f1f1f1;
+      padding: 20px 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: left;
+    }   
+    .footer-top {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid darkgray;  
+    }
+    .footer-item {
+      text-align: center;
+    }
+    .footer-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+    .footer-item p {
+      font-size: 15px;
+      color: #2e2b2b;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top:20px;
+      padding: 0 10%;
+    }
+    .footer-column {
+      flex: 1;
+      margin: 0 20px;
+    }
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .footer-column p,
+    .footer-column ul {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 5px;
+    }
+    .footer-column ul li a {
+      color: #333;
+      text-decoration: none;
+    }
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+    .social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #e1e1e1;
+      margin-top: 20px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .footer-bottom a {    
+      text-decoration: none;
+      color:#55BCE8
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    .footer-certificates img {
+      width: 120px;
+      margin: 0 10px;
+    } 
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="../images/Logo.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-5 pt-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" aria-label="Tìm kiếm sản phẩm" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">
+                            <i class="fa-solid fa-magnifying-glass"></i></span>
+                    </div> 
+                </div>
+                <div class="col-md-5 pt-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="fs-2 ml-3"> 
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="container">
+                                        <a href="#loginModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</a>/
+                                        <a href="#registerModal" class="text-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a>
+                                    </div>
+                                   &nbsp <strong>Tài khoản</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="fs-2 pr-3"> 
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <a href="cart.html" class="text-dark">Giỏ hàng của bạn</a><br>
+                                    <strong>Sản phẩm</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../Html/Trang chủ.html"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="../Html/Giới thiệu.html">GIỚI THIỆU</a></li>
+            <li><a href="../Html/Sữa bột tăng chiều cao.html">SỮA TĂNG CHIỀU CAO</a></li>
+            <li><a href="../Html/Sữa bột tăng cân.html">SỮA TĂNG CÂN</a></li>
+            <li><a href="../Html/Sản phẩm bán chạy.html">SẢN PHẨM BÁN CHẠY</a></li>
+            <li><a href="../Html/Site map.html">SITE MAP</a></li>
+            <li><a href="../Html/Liên hệ.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Phần hình ảnh sản phẩm -->
+            <div class="col-md-6">
+                <div class="main-image mb-3">
+                    <img src="../images/growplus/1.jpg" id="mainImage" class="img-fluid" alt="sữa Hikid">
+                </div>
+                <div class="d-flex gap-2">
+                    <div class="thumbnail">
+                        <img src="../images/growplus/1.jpg" onclick="changeImage('../images/growplus/1.jpg')" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="../images/growplus/4.jpg" onclick="changeImage('../images/growplus/4.jpg')" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="../images/growplus/5.jpg" onclick="changeImage('../images/growplus/5.jpg')" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="../images/growplus/7.jpg" onclick="changeImage('../images/growplus/7.jpg')" alt="Thumbnail 4">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phần chi tiết sản phẩm -->
+            <div class="col-md-6">
+                <h2>Sữa Grow Plus+ 780g của Nutifood (cho trẻ từ 0-12 tháng)</h2>
+                <p class="text-muted">Mã: 8935049007647</p>
+                <p class="fw-bold h4 text-danger">355,000₫</p><hr>
+                <div class="ic-row">
+                    <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                    <p>Thương hiệu: Nutifood</p>
+                </div>
+                <div class="ic-row">
+                    <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                    <p>Dinh dưỡng đặc chế cho trẻ suy dinh dưỡng thấp còi dưới 1 tuổi</p>
+                </div>
+                <div class="ic-row">
+                    <i class="fa-solid fa-check" style="color: #63E6BE;"></i>
+                    <p>Hộp khối lượng tịnh: Sữa bột lon 780g</p>
+                </div>
+                <div class="d-flex mb-3">
+                    <label class="me-2">Số Lượng:</label>
+                    <button class="btn btn-outline-secondary btn-sm me-2" onclick="updateQuantity(-1)">-</button>
+                    <span id="quantity" class="mx-2">1</span>
+                    <button class="btn btn-outline-secondary btn-sm ms-2" onclick="updateQuantity(1)">+</button>
+                </div>
+
+                <button class="btn btn-success" onclick="addToCart(1, 'Sữa Grow Plus+ 780g của Nutifood', 355000)">Thêm Vào Giỏ Hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hàm cập nhật số lượng
+        function updateQuantity(change) {
+            const quantityElement = document.getElementById('quantity');
+            let currentQuantity = parseInt(quantityElement.innerText);
+            currentQuantity = Math.max(1, currentQuantity + change); // Đảm bảo số lượng ít nhất là 1
+            quantityElement.innerText = currentQuantity;
+        }
+
+        // Hàm thêm sản phẩm vào giỏ hàng và chuyển hướng đến trang giỏ hàng
+        function addToCart(productId, productName, price) {
+            const quantity = parseInt(document.getElementById('quantity').innerText);
+
+            // Lấy giỏ hàng hiện tại từ localStorage hoặc khởi tạo mảng mới
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Kiểm tra nếu sản phẩm đã có trong giỏ
+            const existingProduct = cart.find(item => item.id === productId);
+            if (existingProduct) {
+                // Nếu sản phẩm đã có, tăng số lượng
+                existingProduct.quantity += quantity;
+            } else {
+                // Nếu không, thêm sản phẩm mới
+                cart.push({ id: productId, name: productName, price: price, quantity: quantity });
+            }
+
+            // Lưu giỏ hàng cập nhật vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} đã được thêm vào giỏ hàng!`);
+
+            // Chuyển sang trang giỏ hàng
+            window.location.href = 'cart.html';
+        }
+
+        // Hàm thay đổi hình ảnh chính khi bấm vào thumbnail
+        function changeImage(imageUrl) {
+            document.getElementById('mainImage').src = imageUrl;
+        }
+    </script>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">ĐĂNG NHẬP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label">Đăng nhập bằng Email</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Quên mật khẩu?</button>                  
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+                    <div class="modal-footer">
+                        <p class="text-center w-100">Bạn chưa có tài khoản? <a href="#registerModal" class="text-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Đăng ký Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">ĐĂNG KÝ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="HotenInput" class="form-label">Họ tên</label>
+                        <input type="text" class="form-control" id="HotenInput" placeholder="Họ và tên">
+                    </div>
+                    <div class="mb-3">
+                        <label for="PhoneInput" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="PhoneInput" placeholder="Điện thoại của bạn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInputReg" class="form-label">Email đăng nhập</label>
+                        <input type="email" class="form-control" id="emailInputReg" placeholder="Nhập email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputReg" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputReg" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInputConfirm" class="form-label">Xác nhận Mật khẩu</label>
+                        <input type="password" class="form-control" id="passwordInputConfirm" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-check mb-3 text-start">
+                        <input class="form-check-input" type="checkbox" value="" id="agreeTerms">
+                        <label class="form-check-label" for="agreeTerms">Tôi đồng ý với <a href="../Html/Điều khoản dịch vụ.html">Điều khoản dịch vụ</a> và <a href="../Html/Chính sách bảo mật.html">Chính sách bảo mật</a> của công ty</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Đăng ký thành viên</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-top">
+        <div class="footer-item">
+          <img src="../images/ft 1.png" alt="Heart Icon">
+          <p>Cùng Ba Mẹ <br>Nuôi Con</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 2.png" alt="Delivery Icon">
+          <p>Giao Hàng <br>Siêu Tốc 1h</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 3.png" alt="Check Icon">
+          <p>100% <br>Chính Hãng</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 4.png" alt="Snowflake Icon">
+          <p>Bảo Quản<br> Mát</p>
+        </div>
+        <div class="footer-item">
+          <img src="../images/ft 5.png" alt="Return Icon">
+          <p>Đổi Trả <br>Dễ Dàng</p>
+        </div>
+      </div>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>TƯ VẤN BÁN HÀNG</h3>
+          <p>
+            <strong>0961 922 556</strong> (Hotline - Zalo 1)<br>
+            <strong>0965 922 556</strong> (Hotline - Zalo 2)
+          </p>
+          <div class="social-icons">
+            <a href="#"><img src="../images/ic_fb.png" alt="Facebook"></a>
+            <a href="#"><img src="../images/ic_yt.png" alt="YouTube"></a>
+          </div>
+        </div>
+    
+        <div class="footer-column">
+          <h3>CHÚNG TÔI LÀ AI ?</h3>
+          <ul>
+            <li><a href="#">Giới thiệu Sữa Bột 24/7</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+          <ul>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Cam kết chất lượng</a></li>
+            <li><a href="#">Quy định thanh toán</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-column">
+          <h3>CHÍNH SÁCH ƯU ĐÃI</h3>
+          <ul>
+            <li><a href="#">Chính sách bảo mật thông tin</a></li>
+            <li><a href="#">Chính sách thanh toán</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+      </div>  
+      <div class="footer-bottom">
+        <p>
+          <strong>SỮA BỘT 24/7 - SUABOT 24/7.COM</strong><br>
+          TRANG TMĐT CHUYÊN SỮA HÀNG ĐẦU VIỆT NAM<br>
+          Địa chỉ: Quang Trung Gò Vấp TP Hồ Chí Minh<br>
+          Website: <a href="http://suabot24/7.com">www.suabot24/7.com</a><br>
+          ĐT: 0961 922 556 - E: <a href="mailto:cskh@suabot24/7.com">cskh@suabottot.com</a>
+        </p>
+      </div>
+</footer>
+</body>
+</html>
